@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requisitos
+- Cadastro de usuário
+- Login
+- Criação de posts
+- Usuário poderá seguir outros
+- Ao realizar um post, todos os seguidores deverão ser avisados por email.
 
-Things you may want to cover:
+---
 
-* Ruby version
+## Entidades
 
-* System dependencies
+### User
+ - name
+ - email
+ - password
 
-* Configuration
+ ### Post
+  - user_id
+  - Title
+  - Body
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Following
+ - followed_id
+ - follower_id
