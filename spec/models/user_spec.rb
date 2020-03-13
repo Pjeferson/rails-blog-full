@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  # Associations
+  it { should have_many(:posts) }
+
+  # Validation
   it 'should be valid with valide attributes' do
     user = User.new(name: 'My Name', email: 'email@email.com', password: 'mypassword', password_confirmation: 'mypassword')
     expect(user).to be_valid  
