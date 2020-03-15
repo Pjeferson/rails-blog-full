@@ -1,27 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="5"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name%></td>
-        <td><%= user.email%></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
+<ul id="users-list">
+  <% @users.each do |user| %>
+    <li >
+      <%= link_to user do %>
+        <div class='personal'>
+        <img src="https://api.adorable.io/avatars/250/abott@adorable.png">
+          <strong><%= user.name%></strong>
+        </div>
+        <div class='follow'>
+          <span>Seguindo 99</span>
+          <span>Seguido por 99</span>
+          <span>Posts: 99</span>
+        </div>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
