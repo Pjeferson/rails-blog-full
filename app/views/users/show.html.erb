@@ -15,5 +15,5 @@
     <button type="button">Follow</button>
 </div>
 
-<%= render 'posts/posts', posts:  @user.posts %>
+<%= render 'posts/posts', posts:  @user.posts.order('created_at DESC') %>
 
