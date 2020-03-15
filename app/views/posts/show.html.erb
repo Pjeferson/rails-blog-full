@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Voltar', posts_path,  class:'back' %>
+
+<div id="post">
+    <%= link_to @post.user do %>
+      <div class='user-info'>
+        <img src="https://api.adorable.io/avatars/250/abott@adorable.png"/>
+        <strong><%= @post.user.name %></strong>
+      </div>
+    <% end%>
+    <div class='post-data'>
+      <strong><%= @post.title %></strong>
+      <p><%= @post.body %></p>
+    </div>
+</div>

@@ -51,15 +51,6 @@ h1 {
   text-align: center;
 }
 
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $gray-light;
-}
-
 p {
   font-size: 1.1em;
   line-height: 1.7em;
@@ -227,6 +218,17 @@ input {
   font-weight: bold;
 }
 
+/* Posts forms */
+#new_post {
+  margin-top: 30px;
+}
+
+#new_post .btn{
+  background: $black;
+  color: $white;
+  font-weight: bold;
+}
+
 /*Users list*/
 #users-list {
   list-style: none;
@@ -327,4 +329,96 @@ input {
   font-weight: bold;
   border-radius: 4px;
   align-self: center;
+}
+
+/*Posts list*/
+#posts-list {
+  list-style: none;
+}
+
+#posts-list li{
+  margin: 20px;
+  padding: 10px;
+  border-bottom: 1px solid $gray;
+}
+
+#posts-list li:hover{
+  opacity: 0.8;
+}
+
+#posts-list li a {
+  display: flex;
+  color: inherit; 
+  text-decoration: inherit; 
+}
+
+#posts-list li .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0;
+  min-width: 100px;
+}
+
+#posts-list li .user-info img{
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+}
+
+#posts-list li .user-info strong{
+  margin-top: 10px;
+}
+
+#posts-list li .post-data {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/*Post view*/
+
+#post {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#post a {
+  color: inherit; 
+  text-decoration: inherit; 
+}
+
+#post .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#post .user-info img{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+#post .user-info strong{
+  margin-top: 10px;
+
+}
+
+#post .post-data {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  border-top: 1px solid $gray;
+}
+
+#post .post-data strong{
+  font-size: 16px;
+}
+
+#post .post-data p{
+  margin-top: 10px;
+  font-size: 16px;
 }

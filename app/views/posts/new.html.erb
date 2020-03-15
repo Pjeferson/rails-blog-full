@@ -1,0 +1,12 @@
+<%= link_to 'Voltar', posts_path, class: 'back'%>
+
+<%= form_for(@post) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+
+    <%= f.label :body %>
+    <%= f.text_area :body, class: 'form-control' %>
+
+    <%= f.submit "Criar postagem", class: "btn" %>
+<% end %>
+
