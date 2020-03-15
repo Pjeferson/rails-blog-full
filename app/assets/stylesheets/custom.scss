@@ -4,6 +4,11 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$black: #171717;
+$gray-medium: #949494;
+$gray: #d0d0d0;
+$white: #e8e8e8;
+$yellow: #e0e256;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -196,4 +201,105 @@ input {
 
 #alert {
     color: rgb(219, 50, 50)
+}
+
+/*Users list*/
+#users-list {
+  list-style: none;
+}
+
+#users-list li{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $gray;
+}
+
+#users-list li:hover{
+  opacity: 0.8;
+}
+
+#users-list li a {
+  color: inherit; 
+  text-decoration: inherit; 
+}
+
+#users-list li .personal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+#users-list li .personal img{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+#users-list li .personal strong{
+  margin-top: 5px;
+}
+
+#users-list li .follow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#users-list li .follow span{
+  margin-right: 10px;
+}
+
+/*View*/
+
+#user {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $gray;
+}
+
+#user .personal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+#user .personal img{
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+#user .personal strong{
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+#user .follow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#user .follow span{
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+#user button{
+  margin-top: 20px;
+  border:0;
+  background: $yellow;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  align-self: center;
 }
