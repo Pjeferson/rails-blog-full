@@ -8,9 +8,9 @@
         <strong><%= @user.name%></strong>
     </div>
     <div class='follow'>
-        <span>Seguindo 99</span>
-        <span>Seguido por 99</span>
-        <span>Posts: 99</span>
+        <span>Seguindo <%= @user.following.count%></span>
+        <span>Seguido por <%= @user.followers.count%></span>
+        <span>Posts: <%= @user.posts.count%></span>
     </div>
     <button type="button">Follow</button>
 </div>
