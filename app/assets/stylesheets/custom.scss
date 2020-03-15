@@ -81,6 +81,17 @@ h3 {
   }
 }
 
+/* Links */
+
+a.back {
+  color: $black;
+  font-size: 16px;
+}
+a.back:hover{
+  color: $black;
+  opacity: 0.8;
+}
+
 /* header */
 
 #logo {
@@ -203,6 +214,19 @@ input {
     color: rgb(219, 50, 50)
 }
 
+/* User forms */
+#form-user .btn{
+  background: $black;
+  color: $white;
+  font-weight: bold;
+}
+
+#new_user .btn{
+  background: $black;
+  color: $white;
+  font-weight: bold;
+}
+
 /*Users list*/
 #users-list {
   list-style: none;
@@ -211,8 +235,8 @@ input {
 #users-list li{
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
+  margin: 20px;
+  padding: 10px;
   border-bottom: 1px solid $gray;
 }
 
@@ -253,7 +277,7 @@ input {
   margin-right: 10px;
 }
 
-/*View*/
+/*User view*/
 
 #user {
   display: flex;
@@ -295,9 +319,10 @@ input {
 
 #user button{
   margin-top: 20px;
-  border:0;
-  background: $yellow;
   padding: 10px 20px;
+  border:0;
+  background: $black;
+  color: $white;
   font-size: 16px;
   font-weight: bold;
   border-radius: 4px;
