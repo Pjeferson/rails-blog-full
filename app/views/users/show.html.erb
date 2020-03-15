@@ -1,4 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Voltar', users_path %>
+
+<div id="user">
+    <div class='personal'>
+    <img src="https://api.adorable.io/avatars/250/abott@adorable.png">
+        <strong><%= @user.name%></strong>
+    </div>
+    <div class='follow'>
+        <span>Seguindo 99</span>
+        <span>Seguido por 99</span>
+        <span>Posts: 99</span>
+    </div>
+    <button type="button">Follow</button>
+</div>
+<div id="posts">
+    <h2>Posts</h2>
+</div>
