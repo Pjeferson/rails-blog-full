@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Olá, <%= @user.name %></h1>
+    <p>
+      <%= @post.user.name %> acaba de fazer uma nova postagem.
+    </p>
+    <p>
+      <a href="http://localhost:3000/posts/<%=@post.id%>">Confira aqui.</a>
+    </p>
+  </body>
+</html>

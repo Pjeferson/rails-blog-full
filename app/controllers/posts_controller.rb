@@ -11,14 +11,17 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
   end
-
+  
   def edit
   end
-
+  
   def create
     @post = Post.new(post_params)
-
+    
     if @post.save
+      current_user.followers.each do |follower|
+        PostMailer.send_email(follower, @post).deliver
+      end
       redirect_to @post, notice: 'Post was successfully created.'
     else
        render :new 
