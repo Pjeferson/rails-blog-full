@@ -56,7 +56,7 @@ RSpec.feature "Users", type: :feature do
     end
   end
 
-  context "view user" do
+  context "view users" do
     let!(:user1) {User.create(name: 'Meu nome 1', email: 'meuemail1@email.com', password: 'Minha senha', password_confirmation: 'Minha senha')}
     let!(:user2) {User.create(name: 'Meu nome 2', email: 'meuemail2@email.com', password: 'Minha senha', password_confirmation: 'Minha senha')}
     
@@ -81,6 +81,17 @@ RSpec.feature "Users", type: :feature do
       expect(page).to have_content(user2.name)
       expect(page).not_to have_selector(:button, 'Editar')
       expect(page).to have_selector(:button, 'Seguir')  
+    end
+
+    scenario "user should see not followed profiles on 'Seguir Pssoas'" do
+      click_link 'Seguir pessoas'
+      expect(page).to have_content(user2.name) 
+    end
+
+    scenario "user should not see followed profiles on 'Seguir Pssoas'" do
+      Follow.create(follower: user1, following: user2)
+      click_link 'Seguir pessoas'
+      expect(page).not_to have_content(user2.name)  
     end
     
   end
