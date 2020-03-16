@@ -25,8 +25,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to signin_path, notice: 'Cadastro realizado com sucesso!' }
        else
+        flash.now[:alert] = 'Não foi possível realizar o cadastro. Verifique seus dados.'
         format.html { render :new }
        end
     end
