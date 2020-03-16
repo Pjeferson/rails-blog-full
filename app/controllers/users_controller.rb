@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.joins("left join follows on follower_id != #{current_user.id}").where("users.id != #{current_user.id}")
+    # TODO: Melhorar algorítimo
+    @users =User.where.not(:id => current_user.following).where.not(:id => current_user.id)
   end
 
   def show
