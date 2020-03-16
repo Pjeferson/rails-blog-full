@@ -62,5 +62,15 @@ RSpec.feature "Posts", type: :feature do
         expect(page).not_to have_content(post.body)  
       end
     end
+
+    scenario "created posts should be detailed with owner infos" do
+      posts.each do |post|
+        visit post_path(post)
+        expect(page).to have_content(post.user.name) 
+        expect(page).to have_content(post.title)  
+        expect(page).to have_content(post.body)  
+      end
+    end
+
   end
 end
