@@ -9,7 +9,7 @@ RSpec.feature "Users", type: :feature do
         fill_in 'Email', with: 'meuemail@email.com'
       end
     end
-    
+
     scenario "user should be created" do
       within('form') do
         fill_in 'Senha', with: 'Minha senha'
@@ -54,5 +54,34 @@ RSpec.feature "Users", type: :feature do
       click_button 'Atualizar conta'
       expect(page).to have_content('Não foi possível atualizar o cadastro. Verifique seus dados.')  
     end
+  end
+
+  context "view user" do
+    let!(:user1) {User.create(name: 'Meu nome 1', email: 'meuemail1@email.com', password: 'Minha senha', password_confirmation: 'Minha senha')}
+    let!(:user2) {User.create(name: 'Meu nome 2', email: 'meuemail2@email.com', password: 'Minha senha', password_confirmation: 'Minha senha')}
+    
+    before(:each) do
+      visit '/signin'
+      within('form') do
+        fill_in 'Email', with: user1.email
+        fill_in 'Senha', with: 'Minha senha'
+      end
+      click_button 'Entrar'
+    end
+
+    scenario "user should see own profile" do
+      visit user_path(user1)
+      expect(page).to have_content(user1.name)
+      expect(page).to have_selector(:button, 'Editar')
+      expect(page).not_to have_selector(:button, 'Seguir')  
+    end
+
+    scenario "user should see anothers profiles" do
+      visit user_path(user2)
+      expect(page).to have_content(user2.name)
+      expect(page).not_to have_selector(:button, 'Editar')
+      expect(page).to have_selector(:button, 'Seguir')  
+    end
+    
   end
 end
