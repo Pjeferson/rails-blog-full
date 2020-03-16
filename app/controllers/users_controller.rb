@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :check, :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :check_user,only: [:edit, :update, :destroy]
 
   def index
-    # TODO: Melhorar algorítimo
     @users =User.where.not(:id => current_user.following).where.not(:id => current_user.id)
   end
 
@@ -14,10 +14,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    #Código repetido
-    if @user.id != current_user.id
-      redirect_to @user
-    end
   end
 
   def create
@@ -34,11 +30,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    #Código repetido
-    if @user.id != current_user.id
-      redirect_to @user
-    end
-    
     if @user.update(user_params)
       redirect_to @user, notice: 'Cadastro atualizado com sucesso!'
      else
@@ -63,9 +54,9 @@ class UsersController < ApplicationController
         params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
-    def check
-      if(!user_logged_in?)
-        redirect_to '/'
+    def check_user
+      if @user.id != current_user.id
+        redirect_to @user
       end
     end
 end

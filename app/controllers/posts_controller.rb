@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :check_post, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.where(:user_id => current_user.following).order('created_at DESC')
@@ -33,14 +34,14 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post, notice: 'Postagem atualizada com sucesso!'
     else
+      flash.now[:alert] = 'Não foi possível atualizar a postagem. Verifique os dados da mesma.'
       render :edit
     end
   end
 
   def destroy
     @post.destroy
-
-    redirect_to posts_url, notice: 'Post was successfully destroyed.'
+    redirect_to posts_url, notice: 'Postagem removida com sucesso!'
   end
 
   private
@@ -50,5 +51,11 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:title, :body).merge(user_id: current_user.id)
+    end
+
+    def check_post
+      if @post.user.id != current_user.id
+          redirect_to @post
+      end
     end
 end
