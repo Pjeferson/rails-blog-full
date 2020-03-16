@@ -1,16 +1,18 @@
 <h3>Cadastro</h3>
 
+<p id='alert'><%= alert %></p>
+
 <%= form_for(@user) do |f| %>
-    <%= f.label :name %>
+    <%= f.label :name, 'Nome' %>
     <%= f.text_field :name, class: 'form-control' %>
 
-    <%= f.label :email %>
+    <%= f.label :email, 'Email' %>
     <%= f.email_field :email, class: 'form-control' %>
 
-    <%= f.label :password %>
+    <%= f.label :password, 'Senha' %>
     <%= f.password_field :password, class: 'form-control' %>
 
-    <%= f.label :password_confirmation, "Confirmação" %>
+    <%= f.label :password_confirmation, "Confirmação de senha" %>
     <%= f.password_field :password_confirmation, class: 'form-control' %>
 
     <%= f.submit "Criar conta", class: "btn" %>
