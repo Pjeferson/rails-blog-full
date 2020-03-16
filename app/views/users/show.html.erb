@@ -2,6 +2,8 @@
 
 <%= link_to 'Voltar', users_path,  class:'back' %>
 
+<p id='alert'><%= alert %></p>
+
 <div id="user">
     <div class='personal'>
     <img src="https://api.adorable.io/avatars/250/abott@adorable.png">
@@ -17,8 +19,14 @@
             <button type="button">Editar</button>
         <% end %>
     <% else %>
-        <%= link_to '#' do%>
-            <button type="button">Seguir</button>
+        <% if !current_user.following.exists?(@user.id) %>
+            <%= link_to follows_path( follower_id: current_user, following_id: @user.id), method: :post do%>
+                <button type="button">Seguir</button>
+            <% end %>
+        <% else %>
+            <%= link_to follow_path( follower_id: current_user, following_id: @user.id), method: :delete do%>
+                <button type="button">Deixar de seguir</button>
+            <% end %>
         <% end %>
     <% end %>
 
