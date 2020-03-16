@@ -22,15 +22,16 @@ class PostsController < ApplicationController
       current_user.followers.each do |follower|
         PostMailer.send_email(follower, @post).deliver
       end
-      redirect_to @post, notice: 'Post was successfully created.'
+      redirect_to @post, notice: 'Postagem criada com sucesso!'
     else
-       render :new 
+      flash.now[:alert] = 'Não foi possível realizar a postagem. Verifique os dados da mesma.'
+      render :new 
     end
   end
 
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: 'Post was successfully updated.'
+      redirect_to @post, notice: 'Postagem atualizada com sucesso!'
     else
       render :edit
     end
