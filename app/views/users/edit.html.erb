@@ -1,6 +1,19 @@
-<h1>Editing User</h1>
+<%= link_to 'Voltar', user_path,  class:'back' %>
 
-<%= render 'form', user: @user %>
+<h3>Editar cadastro</h3>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= form_for(@user) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
+
+    <%= f.label :password_confirmation, "Confirmação" %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+    <%= f.submit "Atualizar conta", class: "btn" %>
+<% end %>

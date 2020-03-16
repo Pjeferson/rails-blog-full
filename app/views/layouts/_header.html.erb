@@ -4,7 +4,8 @@
     <nav>
         <ul class="nav navbar-nav navbar-right">
             <% if current_user%>
-            <li><%= link_to "Criar novo Post",   '/posts/new' %></li>
+            <li><%= link_to "Meu perfil",   "/users/#{current_user.id}" %></li>
+            <li><%= link_to "Nova postagem",   '/posts/new' %></li>
             <li><%= link_to "Seguir pessoas",   '/users'  %></li>
             <li><%= link_to "Sair", '/signout' %></li>
             <%  else%>

@@ -13,6 +13,10 @@ class UsersController < ApplicationController
   end
 
   def edit
+    #Código repetido
+    if @user.id != current_user.id
+      redirect_to @user
+    end
   end
 
   def create
@@ -28,13 +32,16 @@ class UsersController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-       else
-        format.html { render :edit }
-       end
+    #Código repetido
+    if @user.id != current_user.id
+      redirect_to @user
     end
+    
+    if @user.update(user_params)
+      redirect_to @user, notice: 'User was successfully updated.'
+     else
+      render :edit
+     end
   end
 
   def destroy

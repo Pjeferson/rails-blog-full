@@ -206,7 +206,7 @@ input {
 }
 
 /* User forms */
-#form-user .btn{
+#form-user, .edit_user .btn{
   background: $black;
   color: $white;
   font-weight: bold;
@@ -319,6 +319,10 @@ input {
   font-size: 16px;
 }
 
+#user a{
+  align-self: center;
+}
+
 #user button{
   margin-top: 20px;
   padding: 10px 20px;
@@ -328,7 +332,6 @@ input {
   font-size: 16px;
   font-weight: bold;
   border-radius: 4px;
-  align-self: center;
 }
 
 /*Posts list*/
