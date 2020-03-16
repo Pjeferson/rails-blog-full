@@ -12,4 +12,10 @@ class ApplicationController < ActionController::Base
     def user_logged_in?
         return !!current_user
     end
+
+    def check
+        if(!user_logged_in?)
+          redirect_to '/'
+        end
+    end
 end

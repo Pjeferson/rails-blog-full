@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :check, except: [:new, :create]
+
   def new
     @user = User.new
   end
