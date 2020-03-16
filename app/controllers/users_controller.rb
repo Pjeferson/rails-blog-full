@@ -40,8 +40,9 @@ class UsersController < ApplicationController
     end
     
     if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user, notice: 'Cadastro atualizado com sucesso!'
      else
+      flash.now[:alert] = 'Não foi possível atualizar o cadastro. Verifique seus dados.'
       render :edit
      end
   end

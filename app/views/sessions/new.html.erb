@@ -3,10 +3,10 @@
 <p id='alert'><%= alert %></p>
 
 <%= form_with(url: sessions_path , local: true, id: 'form-user') do |f| %>
-    <%= f.label :email %>
+    <%= f.label :email, 'Email'%>
     <%= f.email_field :email, class: 'form-control' %>
 
-    <%= f.label :password %>
+    <%= f.label :password, 'Senha' %>
     <%= f.password_field :password, class: 'form-control' %>
 
     <%= f.submit "Entrar", class: "btn" %>

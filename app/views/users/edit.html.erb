@@ -2,6 +2,8 @@
 
 <h3>Editar cadastro</h3>
 
+<p id='alert'><%= alert %></p>
+
 <%= form_for(@user) do |f| %>
     <%= f.label :name, 'Nome' %>
     <%= f.text_field :name, class: 'form-control' %>
