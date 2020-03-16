@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
             @current_user = nil
         end
     end
+
+    def user_logged_in?
+        return !!current_user
+    end
 end
